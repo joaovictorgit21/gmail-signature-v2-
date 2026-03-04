@@ -5,12 +5,24 @@
 
 const SCHOOLS = {
   'madre-paula': {
-    bg:    'https://gmailsignature.netlify.app/assets/fundos/madre-paula.png',
+    bg:    'https://github.com/bw8hook/escolapias-assinatura/blob/main/assets/fundos/madre-paula.png',
     label: 'Colégio Madre Paula Montal Escolápias'
   },
   'sao-jose': {
-    bg:    'https://gmailsignature.netlify.app/assets/fundos/sao-jose.png',
+    bg:    'https://github.com/bw8hook/escolapias-assinatura/blob/main/assets/fundos/sao-jose.png',
     label: 'Colégio São José Escolápias'
+  },
+  'filhas-de-maria': {
+    bg:    'https://github.com/bw8hook/escolapias-assinatura/blob/main/assets/fundos/Filhas%20de%20Maria.png',
+    label: 'Filhas de Maria Escolápias'
+  },
+  'centro-escolapio': {
+    bg:    'https://github.com/bw8hook/escolapias-assinatura/blob/main/assets/fundos/Centro%20Escol%C3%A1pio.png',
+    label: 'Centro Escolápio Escolápias'
+  },
+  'assedef': {
+    bg:    'https://github.com/bw8hook/escolapias-assinatura/blob/main/assets/fundos/Assedef.png',
+    label: 'Assedef Escolápias'
   }
 };
 
