@@ -162,12 +162,12 @@ function getSignatureHTML() {
     : '';
 
   const rightCol = socials
-    ? `<td style="padding: 60px 200px 60px 80px;vertical-align:middle;text-align:center;">${socials}</td>`
+    ? `<td style="padding: 100px 40px 0px 80px;vertical-align:middle;text-align:stretch;">${socials}</td>`
     : '';
 
   return `<table cellpadding="0" cellspacing="0" border="0" style="width:900px;height:300px;${bgStyle}border-radius:12px;font-family:Roboto,Arial,sans-serif;">
   <tr>
-    <td style="padding:32px 50px;vertical-align:middle;">
+    <td style="padding:50px 70px;vertical-align:middle;">
       ${showNome  ? `<div style="font-size:36px;font-weight:800;line-height:110%;color:#ffffff;margin-bottom:4px;">${nome}</div>` : ''}
       ${showCargo ? `<div style="font-size:16px;font-weight:500;color:#F0D080;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:14px;">${cargo}</div>` : ''}
       <table cellpadding="0" cellspacing="0" border="0">${rows}</table>
