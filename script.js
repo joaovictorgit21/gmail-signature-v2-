@@ -5,11 +5,11 @@
 
 const SCHOOLS = {
   'madre-paula': {
-    bg: 'https://gmailsignature.netlify.app/assets/fundos/madre-paula.png',
+    bg:    'https://gmailsignature.netlify.app/assets/fundos/madre-paula.png',
     label: 'Colégio Madre Paula Montal Escolápias'
   },
   'sao-jose': {
-    bg: 'https://gmailsignature.netlify.app/assets/fundos/sao-jose.png',
+    bg:    'https://gmailsignature.netlify.app/assets/fundos/sao-jose.png',
     label: 'Colégio São José Escolápias'
   }
 };
@@ -55,9 +55,6 @@ function updatePreview() {
   const email  = document.getElementById('in-email').value.trim();
   const end    = document.getElementById('in-end').value.trim();
   const web    = document.getElementById('in-web').value.trim();
-  const fb     = document.getElementById('in-fb').value.trim();
-  const ig     = document.getElementById('in-ig').value.trim();
-  const globe  = document.getElementById('in-globe').value.trim();
 
   const showNome    = document.getElementById('cb-nome').checked;
   const showCargo   = document.getElementById('cb-cargo').checked;
@@ -66,8 +63,6 @@ function updatePreview() {
   const showEmail   = document.getElementById('cb-email').checked;
   const showEnd     = document.getElementById('cb-end').checked;
   const showWeb     = document.getElementById('cb-web').checked;
-  const showSocial  = document.getElementById('cb-social').checked;
-  const showDivider = document.getElementById('cb-divider').checked;
 
   // Nome e Cargo
   const nameEl = document.getElementById('sig-name');
@@ -94,21 +89,6 @@ function updatePreview() {
   } else {
     sigBg.style.backgroundImage = 'none';
   }
-
-  // Barra divisória
-  document.getElementById('sig-divider').style.display = showDivider ? '' : 'none';
-
-  // Coluna direita
-  document.getElementById('sig-right').style.display = showSocial ? '' : 'none';
-
-  // Redes sociais
-  const socFb    = document.getElementById('soc-fb');
-  const socIg    = document.getElementById('soc-ig');
-  const socGlobe = document.getElementById('soc-globe');
-
-  socFb.style.display    = fb    ? '' : 'none';  socFb.href    = fb    || '#';
-  socIg.style.display    = ig    ? '' : 'none';  socIg.href    = ig    || '#';
-  socGlobe.style.display = globe ? '' : 'none';  socGlobe.href = globe || '#';
 }
 
 /* ─── Geração do HTML exportado ─────────────────────────────── */
@@ -121,9 +101,6 @@ function getSignatureHTML() {
   const email  = document.getElementById('in-email').value.trim();
   const end    = document.getElementById('in-end').value.trim();
   const web    = document.getElementById('in-web').value.trim();
-  const fb     = document.getElementById('in-fb').value.trim();
-  const ig     = document.getElementById('in-ig').value.trim();
-  const globe  = document.getElementById('in-globe').value.trim();
 
   const showNome    = document.getElementById('cb-nome').checked;
   const showCargo   = document.getElementById('cb-cargo').checked;
@@ -132,15 +109,13 @@ function getSignatureHTML() {
   const showEmail   = document.getElementById('cb-email').checked;
   const showEnd     = document.getElementById('cb-end').checked;
   const showWeb     = document.getElementById('cb-web').checked;
-  const showSocial  = document.getElementById('cb-social').checked;
-  const showDivider = document.getElementById('cb-divider').checked;
 
   const bgSrc   = (escola && SCHOOLS[escola]) ? SCHOOLS[escola].bg : '';
   const bgStyle = bgSrc
     ? `background:url('${bgSrc}') center/cover no-repeat;`
     : 'background:#1a3a6b;';
 
-  const csContact = 'padding:2px 0;font-size:13px;color:rgba(255,255,255,0.9);';
+  const csContact = 'padding:2px 0;font-size:16px;color:rgba(255,255,255,0.9);';
 
   let rows = '';
   if (showTel   && tel)   rows += `<tr><td style="${csContact}">&#128222;&nbsp;${tel}</td></tr>`;
@@ -148,32 +123,14 @@ function getSignatureHTML() {
   if (showEmail && email) rows += `<tr><td style="${csContact}">&#9993;&nbsp;${email}</td></tr>`;
   if (showEnd   && end)   rows += `<tr><td style="${csContact}">&#128205;&nbsp;${end}</td></tr>`;
   if (showWeb   && web)   rows += `<tr><td style="${csContact}">&#127760;&nbsp;${web}</td></tr>`;
-
-  const csSoc = 'display:inline-block;width:28px;height:28px;background:rgba(255,255,255,0.2);border-radius:6px;text-align:center;line-height:28px;color:#fff;text-decoration:none;font-size:13px;margin:0 3px;';
-  let socials = '';
-  if (showSocial) {
-    if (globe) socials += `<a href="${globe}" style="${csSoc}">&#127760;</a>`;
-    if (fb)    socials += `<a href="${fb}"    style="${csSoc}">f</a>`;
-    if (ig)    socials += `<a href="${ig}"    style="${csSoc}">&#128247;</a>`;
-  }
-
-  const dividerCol = showDivider
-    ? `<td style="width:1px;padding:40px 0;"><div style="width:1px;height:220px;background:rgba(201,168,76,0.6);"></div></td>`
-    : '';
-
-  const rightCol = socials
-    ? `<td style="padding: 100px 40px 0px 80px;vertical-align:middle;text-align:stretch;">${socials}</td>`
-    : '';
-
+ 
   return `<table cellpadding="0" cellspacing="0" border="0" style="width:900px;height:300px;${bgStyle}border-radius:12px;font-family:Roboto,Arial,sans-serif;">
   <tr>
-    <td style="padding:50px 70px;vertical-align:middle;">
+    <td style="padding:40px 80px;vertical-align:middle;">
       ${showNome  ? `<div style="font-size:36px;font-weight:800;line-height:110%;color:#ffffff;margin-bottom:4px;">${nome}</div>` : ''}
       ${showCargo ? `<div style="font-size:16px;font-weight:500;color:#F0D080;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:14px;">${cargo}</div>` : ''}
       <table cellpadding="0" cellspacing="0" border="0">${rows}</table>
     </td>
-    ${dividerCol}
-    ${rightCol}
   </tr>
 </table>`;
 }
@@ -212,6 +169,13 @@ function copyHTML() {
   copyToClipboard(getSignatureHTML(), false)
     .then(() => showToast('📋 HTML copiado! Cole no campo de assinatura do seu e-mail.'))
     .catch(() => showToast('📋 HTML copiado!'));
+}
+
+function copySignature() {
+  if (!requireSchool()) return;
+  copyToClipboard(getSignatureHTML(), true)
+    .then(() => showToast('✅ Assinatura copiada! Cole diretamente no cliente de e-mail.'))
+    .catch(() => showToast('📋 Assinatura copiada!'));
 }
 
 function downloadPNG() {
