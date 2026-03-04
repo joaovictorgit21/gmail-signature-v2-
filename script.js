@@ -140,7 +140,6 @@ function getSignatureHTML() {
     ? `background:url('${bgSrc}') center/cover no-repeat;`
     : 'background:#1a3a6b;';
 
-  const overlay   = 'background:rgba(5,20,60,0.35);';
   const csContact = 'padding:2px 0;font-size:13px;color:rgba(255,255,255,0.9);';
 
   let rows = '';
@@ -159,16 +158,16 @@ function getSignatureHTML() {
   }
 
   const dividerCol = showDivider
-    ? `<td style="width:1px;padding:40px 0;${overlay}"><div style="width:1px;height:220px;background:rgba(201,168,76,0.6);"></div></td>`
+    ? `<td style="width:1px;padding:40px 0;"><div style="width:1px;height:220px;background:rgba(201,168,76,0.6);"></div></td>`
     : '';
 
   const rightCol = socials
-    ? `<td style="padding:32px 40px;vertical-align:middle;text-align:center;${overlay}">${socials}</td>`
+    ? `<td style="padding:32px 40px;vertical-align:middle;text-align:center;">${socials}</td>`
     : '';
 
   return `<table cellpadding="0" cellspacing="0" border="0" style="width:900px;height:300px;${bgStyle}border-radius:12px;font-family:Roboto,Arial,sans-serif;">
   <tr>
-    <td style="padding:32px 50px;vertical-align:middle;${overlay}">
+    <td style="padding:32px 50px;vertical-align:middle;">
       ${showNome  ? `<div style="font-size:36px;font-weight:800;line-height:110%;color:#ffffff;margin-bottom:4px;">${nome}</div>` : ''}
       ${showCargo ? `<div style="font-size:16px;font-weight:500;color:#F0D080;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:14px;">${cargo}</div>` : ''}
       <table cellpadding="0" cellspacing="0" border="0">${rows}</table>
